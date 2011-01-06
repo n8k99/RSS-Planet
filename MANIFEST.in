@@ -1,0 +1,5 @@
+include *.dat
+include *.in
+include *.py
+include default
+include web/wz_tooltip.js
