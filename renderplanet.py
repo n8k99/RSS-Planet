@@ -1,13 +1,15 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
-# Draw the day/night distribution in rectangular projection.
-# 2007-07-17
+"""
+Draw the day/night distribution in rectangular projection.
+2007-07-17
 
-# Based on Sun position Python code
-# by Grzegorz Rakoczy
-# which in turn is based on the web page
-#  http://www.stjarnhimlen.se/comp/tutorial.html
-# by Paul Schlyter
+Based on Sun position Python code
+by Grzegorz Rakoczy
+which in turn is based on the web page
+ http://www.stjarnhimlen.se/comp/tutorial.html
+by Paul Schlyter
+"""
 
 from math import *
 import os, sys, time

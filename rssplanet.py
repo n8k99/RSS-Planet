@@ -1,11 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
-# RSS-Planet 1.4
-#
-# By
-# Martin C. Doege, 2008-11-18
+"""
+RSS-Planet 1.4.1
 
-__version__ = "1.4"
+Martin C. Doege, 2013-01-23
+"""
+
+__version__ = "1.4.1"
 
 import os, re, sys, math, time, urllib2
 import rssparser

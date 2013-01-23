@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 # 2008-11-17
 
@@ -23,8 +23,7 @@ def output_html(f, items, res, ic, web_path = 'web', mfile = 'rssitems'):
 	w, h = res[0], res[1]
 	wi, hi = ic[0], ic[1]
 
-	p0 = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"\
-			"http://www.w3.org/TR/html4/loose.dtd">\n'
+	p0 = '<!doctype html">\n'
 	p1 = '<html><head><title>RSS-Planet Newsmap</title><meta http-equiv="refresh" content="1200"></head><body text="#ffff00">\n'
 	p2 = '<div style="position:absolute; top:%upx; left:%upx;">\n' % (p_top, p_left)
 	p3 = '<img src="rssplanet.png.jpg" width="%s" height="%s" alt="RSS-Planet background"></div>\n' % (w, h)

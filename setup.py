@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name="rssplanet",
-        version="1.4",
+        version="1.4.1",
         description="An RSS/RDF/Atom newsmapper for xplanet and OSXplanet",
         author="Martin C. Doege",
         author_email="mdoege@compuserve.com",
