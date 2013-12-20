@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="icon" href="favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>RSS-Planet &mdash; Mapping the News As It Happens</title>
 <style type="text/css">
   body { color: #dde;
@@ -77,13 +78,13 @@ function hide(x) {
 <body>
 <div class="content">
 <p><span class="planet">RSS-Planet</span></p>
-<div class="credits">Implementation by Martin C. Doege after an idea by <a href="http://eckenrodehouse.net/">Nathan Eckenrode</a></div>
+<div class="credits">Implementation by Martin C. Doege after an idea by <a href="http://nathaneckenrode.com/">Nathan Eckenrode</a></div>
 
 <p>RSS-Planet is a newsmapper, i.e. a custom marker file generator for <a href="http://xplanet.sourceforge.net/">xplanet</a> and OSXplanet which uses RSS feeds from news websites to plot the current headlines on a world map.</p>
 
 <p>By default, BBC News, Yahoo! News, CNN.com and the Washington Post are supported, but other feeds with articles that include place names should work as well.</p>
 
-<p class="center"><a href="http://home.arcor.de/mdoege/planet/rssplanet.html"><img src="preview.jpg" width="466" height="158" alt="RSS-Planet preview" /><br />Please click for HTML interface demo page</a></p>
+<p class="center"><img src="preview.jpg" width="466" height="158" alt="RSS-Planet preview" /></p>
 
 <p><a href="rssplanet-1.4.tar.gz">Download RSS-Planet 1.4 here [100 kB]</a> (Python 2.3 or above, xplanet 1.0 or above or OSXplanet required)</p>
 
@@ -142,8 +143,15 @@ function hide(x) {
 <div class="footer">
 <p><span class="heading">KDE USERS:</span> <a name="specif">KDE</a> usually does not allow xplanet to change the background. You have to do the following for this to work (adapted from <a href="http://www.number.ch/wiki/index.php/XplanetClouds">this page</a>):</p>
 
-<p>Go to the "Configure Background" screen of KDE and change to the "background" tab. Change the "Mode" to "Background Program" and hit "Setup..." In the "Select Background Program" screen, add another program with "New...". Add somesuch lines in the "Configure Background Program" screen:</p><tt class="small">
-Name: "RSS-planet"<br />Comment: "RSS-Planet"<br />Command: "nice xplanet -geometry %xx%y -projection rectangular -config /home/<em>mydirectory</em>/rss-planet/default<br /> &nbsp;&nbsp;&nbsp;-num_times 1 -output %f.jpg &amp;&amp; mv %f.jpg %f"<br />Preview cmd:  "xplanet -geometry %xx%y -projection rectangular -config /home/<em>mydirectory</em>/rss-planet/default<br /> &nbsp;&nbsp;&nbsp;-num_times 1 -output %f.jpg &amp;&amp; mv %f.jpg %f"<br />Executable: "xplanet"<br />Refresh time: "5" Minutes<br />
+<p>Go to the "Configure Background" screen of KDE and change to the "background" tab. Change the "Mode" to "Background Program" and hit "Setup..." In the "Select Background Program" screen, add another program with "New...". Add somesuch lines in the "Configure Background Program" screen:</p>
+
+<tt class="small">
+Name: "RSS-planet"<br />
+Comment: "RSS-Planet"<br />
+Command: "nice xplanet -geometry %xx%y -projection rectangular -config /home/<em>mydirectory</em>/rss-planet/default<br /> &nbsp;&nbsp;&nbsp;-num_times 1 -output %f.jpg &amp;&amp; mv %f.jpg %f"<br />
+Preview cmd:  "xplanet -geometry %xx%y -projection rectangular -config /home/<em>mydirectory</em>/rss-planet/default<br /> &nbsp;&nbsp;&nbsp;-num_times 1 -output %f.jpg &amp;&amp; mv %f.jpg %f"<br />
+Executable: "xplanet"<br />
+Refresh time: "5" Minutes<br />
 </tt>
 
 <p>Of course, the <em>mydirectory</em> in the path has to be changed to point to where the rss-planet directory resides on your system.</p>
