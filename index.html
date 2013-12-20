@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>RSS-Planet &mdash; Mapping the News As It Happens</title>
+<style type="text/css">
+  body { color: #dde;
+         background: #000;
+         font-family: Tahoma, Univers, Helvetica, "Bitstream Vera Sans", Geneva, sans-serif;
+         font-size: 11pt;
+	 line-height: 160% }
+  .content { background: #120;
+             padding: 8px 30px;
+             width: 600px }
+  .footer  { background: #002;
+             padding: 20px 40px 20px 40px }
+  .planet  { font-size: 16pt;
+             color: #ff0 }
+  .credits  { font-size: 12pt;
+              color: #aab;
+              padding-top: 0px;
+              padding-bottom: 10px }
+  .heading  { font-size: 11pt;
+              padding-right: 14px;
+             color: #ff0 }
+  .small   { font-size: 9pt;
+             line-height: 16pt }
+  .note   { font-size: 10pt;
+            font-style: italic }
+  div.img { width: 320px;
+            float:left }
+  div.desc { width: 260px;
+             padding: 5px;
+             float:left }
+  .clear  { clear: both }
+  .thumb_deact { font-weight: normal;
+                 background: none }
+  .thumb_act   { font-weight: bold;
+                 background: #230 }
+  a:link       { color: #7a6;
+             text-decoration: none }
+  a:hover  { color: #ffc;
+             background: #015 }
+  a:active { color: #fff }
+  ul { list-style-type: square }
+  li { line-height: 16pt;
+       padding: 10px 20px 10px 0px }
+  p  { text-align: left }
+  p.center  { text-align: center }
+
+.plistareset{
+height:0px ! important;
+display:none ! important;
+}
+
+#homerecads_widget{
+height:0px ! important;
+display:none ! important;
+}
+
+</style>
+<script type="text/javascript">
+function show(x) {
+  document.getElementById('thumb').setAttribute('src', x);
+  document.getElementById(x).className = "thumb_act";
+}
+
+function hide(x) {
+  document.getElementById(x).className = "thumb_deact";
+}
+</script>
+</head>
+<body>
+<div class="content">
+<p><span class="planet">RSS-Planet</span></p>
+<div class="credits">Implementation by Martin C. Doege after an idea by <a href="http://eckenrodehouse.net/">Nathan Eckenrode</a></div>
+
+<p>RSS-Planet is a newsmapper, i.e. a custom marker file generator for <a href="http://xplanet.sourceforge.net/">xplanet</a> and OSXplanet which uses RSS feeds from news websites to plot the current headlines on a world map.</p>
+
+<p>By default, BBC News, Yahoo! News, CNN.com and the Washington Post are supported, but other feeds with articles that include place names should work as well.</p>
+
+<p class="center"><a href="http://home.arcor.de/mdoege/planet/rssplanet.html"><img src="preview.jpg" width="466" height="158" alt="RSS-Planet preview" /><br />Please click for HTML interface demo page</a></p>
+
+<p><a href="rssplanet-1.4.tar.gz">Download RSS-Planet 1.4 here [100 kB]</a> (Python 2.3 or above, xplanet 1.0 or above or OSXplanet required)</p>
+
+<p>You can also browse the <a href="https://github.com/mdoege/RSS-Planet">current repository</a> at  <a href="https://github.com/">GitHub</a> and obtain the source code by using the <a href="http://git-scm.com/">git</a> command <tt>git clone git://github.com/mdoege/RSS-Planet.git</tt></p>
+
+<p class="note">Note: The <a href="http://www.pythonware.com/products/pil/">Python Imaging Library</a> needs to be installed for favicon display to work. Circles are used by default if PIL is not found. To use the GUI, <a href="http://www.wxpython.org/">wxPython</a> must be installed.</p>
+
+<p><span class="heading">USAGE:</span> Unpack the archive, cd into the directory, and run "./rssplanet.py &amp;". It will take a few minutes before the first annotated map appears. Alternatively, you can run the program via its GUI: "./planetgui.py" (or "pythonw planetgui.py" on the Mac).</p>
+
+<p>The script will start xplanet and then poll the configured sites regularly. For advanced configuration, see the first few lines of rssplanet.py, where some global variables such as the refresh interval are set.</p>
+
+<p>Command line options:</p>
+
+<ul>
+  <li><tt>-w</tt>&nbsp; web page output (generate HTML with JavaScript popups) </li>
+  <li><tt>-s</tt>&nbsp; standalone mode (just generate the marker file, don't start xplanet) </li>
+  <li><tt>-x</tt>&nbsp; update only once and then exit (useful when called from a cron job) </li>
+  <li><tt>-v</tt>&nbsp; verbose mode (print headlines as they are fetched) </li>
+</ul>
+
+<p>Please also read these <a href="#specif">installation instructions for KDE, Gnome, and OS X</a>.</p>
+
+<p>Other settings can be customized by editing rssplanet.py.</p>
+
+<p><span class="heading">NEW IN THIS VERSION:</span> RSS-Planet now has a standalone mode where it only runs once when it is called, creates the marker file, and then exits. This is useful for easier integration with an existing xplanet setup.</p>
+
+<p><span class="heading">NEW IN VERSION 1.3:</span> RSS-Planet can now alternatively output <a href="http://home.arcor.de/mdoege/planet/rssplanet.html">HTML with popup captions</a>. If the command line option <tt>--web</tt> is used, a page called rssplanet.html is generated in the <tt>web_path</tt> directory. Rendering of the background image no longer requires xplanet or OSXplanet in this mode, only the day and night images specified in renderplanet.py. Normally, these will be earth.jpg and night.jpg, which are available from from the xplanet/OSxplanet distribtution.</p>
+
+<p><span class="heading">NEW IN VERSION 1.2:</span> RSS-Planet now includes an optional wxPython-based GUI, which can be used to toggle feeds on and off and adjust the refresh interval. Other new features are a news ticker and a button to open a story in the default web browser.</p>
+
+<p class="center"><img src="gui.png" width="400" height="372" alt="gui" /><br /><small>The GUI (on Mac OS X).</small></p>
+
+<p><span class="heading">NEW IN VERSION 1.1:</span> Using the web site <a href="http://en.wikipedia.org/wiki/Favicon">favicons</a> as markers, better support for the BBC and WP feeds, presets, varying circle diameter based on number of dropped stories, optional removal of vowels from headlines to allow longer titles, maximum number of headlines per feed (defaults to 10).</p>
+
+<p class="center"><img src="fav.jpg" width="274" height="167" alt="favicons" /><br /><small>Favicons as markers on the map.</small></p>
+
+<p><span class="heading">XPLANET PRESETS</span> (with corresponding command line options in parentheses):</p>
+
+<div class="img"><img id="thumb" src="thumb_rect.jpg" width="320" height="240" alt="preset view" /></div>
+
+<div class="desc">
+<span id="thumb_rect.jpg" class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">World [default]</span><hr />
+<span id="thumb_us.jpg"   class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">The Americas (<tt>--us</tt>)</span><hr />
+<span id="thumb_ameu.jpg" class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">America&ndash;Europe (<tt>--ameu</tt>)</span><hr />
+<span id="thumb_euas.jpg" class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">Europe&ndash;Asia (<tt>--euas</tt>)</span><hr />
+<span id="thumb_asau.jpg" class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">Asia&ndash;Australia (<tt>--asau</tt>)</span><hr />
+<span id="thumb_hemi.jpg" class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">Eastern and Western hemispheres<br />(<tt>--hemi</tt>)</span><hr />
+<span id="thumb_nh.jpg"   class="thumb_deact" onmouseover="show(this.id);" onmouseout="hide(this.id);">Northern Hemisphere (<tt>--nh</tt>)</span>
+</div>
+
+<p class="clear"><br /><span class="heading">LICENSE:</span> This program is distributed under the <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>.</p>
+
+<p class="center"><a href="mailto:mdoege@compuserve.com?subject=RSS-Planet">Comments?</a></p>
+</div>
+
+<div class="footer">
+<p><span class="heading">KDE USERS:</span> <a name="specif">KDE</a> usually does not allow xplanet to change the background. You have to do the following for this to work (adapted from <a href="http://www.number.ch/wiki/index.php/XplanetClouds">this page</a>):</p>
+
+<p>Go to the "Configure Background" screen of KDE and change to the "background" tab. Change the "Mode" to "Background Program" and hit "Setup..." In the "Select Background Program" screen, add another program with "New...". Add somesuch lines in the "Configure Background Program" screen:</p><tt class="small">
+Name: "RSS-planet"<br />Comment: "RSS-Planet"<br />Command: "nice xplanet -geometry %xx%y -projection rectangular -config /home/<em>mydirectory</em>/rss-planet/default<br /> &nbsp;&nbsp;&nbsp;-num_times 1 -output %f.jpg &amp;&amp; mv %f.jpg %f"<br />Preview cmd:  "xplanet -geometry %xx%y -projection rectangular -config /home/<em>mydirectory</em>/rss-planet/default<br /> &nbsp;&nbsp;&nbsp;-num_times 1 -output %f.jpg &amp;&amp; mv %f.jpg %f"<br />Executable: "xplanet"<br />Refresh time: "5" Minutes<br />
+</tt>
+
+<p>Of course, the <em>mydirectory</em> in the path has to be changed to point to where the rss-planet directory resides on your system.</p>
+
+<hr />
+
+<p><span class="heading">GNOME USERS:</span> Like KDE, GNOME normally draws its own desktop onto the X11 root window, which you will have to disable to see the xplanet output:</p>
+
+<ul>
+
+<li>Run gconf-editor (<tt>Applications &rarr; System Tools &rarr; Configuration Editor</tt>)</li>
+
+<li>Go to <tt>Apps &rarr; Nautilus &rarr; Preferences</tt></li>
+
+<li>Uncheck "<tt>show_desktop</tt>"</li>
+
+</ul>
+
+<hr />
+
+<p><span class="heading">MAC OS X USERS:</span> Note: These installation instructions are for OSXplanet v1.<br /> If you want to use OSXplanet instead of xplanet to do the plotting, you have to do the following:</p>
+
+<p>0. Download <a href="osxplanet.tar.gz">osplanet.tar.gz</a>. Uncompress it. You get a file called "xplanetPantherEngine".</p>
+<p>1. Open the OSXplanet bundle. (Control-click on the OSxplanet icon in the Finder; select "Show Package Contents")</p>
+<p>2. Go to the Contents/Resources folder.</p>
+<p>3. Rename the existing file there called "xplanetPantherEngine" to "yplanetPantherEngine".</p>
+<p>4. Move the new "xplanetPantherEngine" from osplanet.tar.gz into the folder.</p>
+<p>5a. Open the new "xplanetPantherEngine" in TextEdit (drag and drop it onto TextEdit, do not doubleclick!) and change the path in the next to last line to where rss-planet resides on your system (Public/rss-planet in my case)</p>
+<p>&nbsp;&nbsp;&nbsp;OR</p>
+<p>5b. Move the rss-planet folder into your "Public" folder.</p>
+<p>6. Check that "start_xplanet" is set to False in rss-planet.py. (It does not hurt if xlanet is running at the same time as OSXplanet, as OSXplanet will simply draw on top of the xplanet output. Still, it does consume twice the CPU power.)</p>
+
+<p>Now start rssplanet.py normally and launch OSXplanet&mdash;voil&agrave;!</p>
+
+<hr />
+
+<p class="small">Acknowledgments: Thanks to Mark Pilgrim for his RSS code and to the KStars developers for their city database.</p>
+</div>
+</body>
+</html>
